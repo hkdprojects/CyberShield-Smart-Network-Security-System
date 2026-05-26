@@ -1,0 +1,70 @@
+================================================================================
+          🛡️ CYBERSHIELD IDPS — CORE ENGINE RUNTIME OPERATIONAL CHEATSHEET 🛡️
+================================================================================
+
+[STEP 1] INITIALIZE WORKSPACE & RESTORE STATE
+--------------------------------------------------------------------------------
+# Flush stale kernel firewall profiles to prevent lingering rule chain deadlocks
+sudo iptables -F
+sudo iptables -t raw -F
+sudo iptables -X
+
+# Explicitly permit packet transitions across internal forwarding layers
+sudo sysctl -w net.ipv4.ip_forward=1
+
+# Verify system interface IP mapping schemas (Look for primary internet gateway IP)
+hostname -I
+
+
+[STEP 2] MACHINE LEARNING ENGINE DATASET SYNTHESIS
+--------------------------------------------------------------------------------
+# Process networking captures and construct the IsolationForest algorithm baseline 
+python3 train_model.py
+
+# NOTE: The default configuration parameters protect against these built-in test targets:
+#  └─ Attacking IP: 203.0.113.66
+#  └─ Rogue Domain: malware.test
+
+
+[STEP 3] SPIN UP THE VIRTUAL ACCESS POINT LAYERS
+--------------------------------------------------------------------------------
+# Navigate directly to the integrated networking management framework
+cd linux-wifi-hotspot
+
+# Initialize the secure network broadcast domain
+# Syntactical format: sudo ./src/scripts/create_ap [Wireless_Interface] [Internet_Interface] [SSID] [Password]
+# Example: sudo ./src/scripts/create_ap wlx24ec99ca8a33 enp0s3 CyberShield 12345678
+sudo ./src/scripts/create_ap [wifi_adapter_interface] [linux_ethernet_interface] CyberShield 12345678
+
+# --- SYSTEM RECOVERY TRIPPERS ---
+# If NetworkManager locks up access paths or blocks hostapd execution loops, apply this patch:
+# sudo systemctl stop systemd-resolved
+# sudo systemctl restart NetworkManager
+
+
+[STEP 4] RUN CYBERSHIELD INTRUSION PROTECTION ENGINE (NEW TERMINAL WINDOW)
+--------------------------------------------------------------------------------
+# Option A: Execute engine using default automatic quarantine intervals (30 Seconds)
+sudo -E .venv/bin/python main.py --iface ap0
+
+# Option B: Execute engine using custom rapid-flush quarantine windows (e.g., 10 Seconds)
+# FIXED: Resolved flag typo error from '--qurantine-secs' to '--quarantine-secs'
+sudo -E .venv/bin/python main.py --iface ap0 --quarantine-secs 10
+
+
+[STEP 5] LAUNCH OPERATOR SOC MANAGEMENT FRONT-END (NEW TERMINAL WINDOW)
+--------------------------------------------------------------------------------
+# Spin up the stream interface dashboard panel layout
+sudo -E .venv/bin/streamlit run dashboard.py
+
+
+[STEP 6] OPTIONAL LEASE-PATH TROUBLESHOOTING TOOL
+--------------------------------------------------------------------------------
+# If the "Live Connected Devices" grid remains empty while a phone is connected,
+# run this to locate create_ap's dynamic file path and verify system read permissions:
+sudo find /tmp/ -name "dnsmasq.leases"
+
+# ==============================================================================
+# NOTE: Ensure the hotspot gateway interface (default: ap0) is active.
+# Infrastructure managed via: https://github.com/lakinduakash/linux-wifi-hotspot
+# ==============================================================================

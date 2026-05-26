@@ -1,0 +1,7 @@
+scapy
+pandas
+scikit-learn
+joblib
+colorama
+streamlit
+streamlit-autorefresh
