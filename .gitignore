@@ -1,0 +1,29 @@
+# ==============================================================================
+# CyberShield Project GitIgnore Configuration
+# ==============================================================================
+
+# 1. Network Telemetry & Incident Logs (Crucial to ignore)
+# Keeps your live tracking csv files from cluttering the repository
+security_log.csv
+traffic_log.csv
+app.log
+
+# 2. Machine Learning Artifacts
+# Prevents giant binary weight files from bloating your GitHub history
+*.joblib
+*.pkl
+*.h5
+
+# 3. Python Environment & Dependency Packages
+# Your friends will install their own packages using requirements.txt
+.venv/
+venv/
+ENV/
+*.pyc
+__pycache__/
+
+# 4. System & Editor Configurations
+.vscode/
+.idea/
+.DS_Store
+*.swp
